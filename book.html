@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Book · PestPair (Demo)</title>
+  <meta name="description" content="Demo booking flow for PestPair: photo, ZIP code, Trusted or Fast tier, and a request. Nothing is sent or booked.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="banner" role="note">Demo prototype — sample data only. Not a real service.</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">🛡️ PestPair</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">How it works</a>
+        <a href="book.html" aria-current="page">Book</a>
+        <a href="exterminators.html">For Exterminators</a>
+        <a href="index.html#money">How we make money</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="container narrow">
+      <h1 class="page-title">Find an exterminator</h1>
+      <p class="sub">Demo booking flow. Nothing is sent, and no job is booked.</p>
+
+      <ol class="wizard-steps" aria-label="Booking progress">
+        <li id="ind-1" class="active">1. Photo</li>
+        <li id="ind-2">2. Location &amp; tier</li>
+        <li id="ind-3">3. Request</li>
+      </ol>
+
+      <!-- Step 1: photo and mock identification -->
+      <section class="card panel" id="panel-1" aria-labelledby="h-photo">
+        <h2 id="h-photo">Upload a photo of the pest</h2>
+        <p class="sub">This demo does not upload your photo. Nothing is stored.</p>
+
+        <input type="file" id="photo-input" accept="image/*" class="visually-hidden">
+        <label class="drop" for="photo-input">
+          <span class="drop-icon" aria-hidden="true">📷</span>
+          <span>Tap to choose a photo</span>
+        </label>
+
+        <button type="button" class="btn btn-ghost btn-block" id="sample-btn">Use a sample photo instead</button>
+
+        <img id="preview" class="preview" alt="Preview of the pest photo you chose" hidden>
+
+        <div id="analyzing" class="result" role="status" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <span>Analyzing photo…</span>
+        </div>
+
+        <div id="result" class="result result-ok" role="status" hidden>
+          <span class="check-small" aria-hidden="true">✓</span>
+          <div>
+            <strong>Looks like an American cockroach</strong>
+            <div class="hint">Confidence 92% (sample result)</div>
+          </div>
+        </div>
+
+        <div class="actions">
+          <span></span>
+          <button type="button" class="btn" id="next-1" disabled>Continue</button>
+        </div>
+      </section>
+
+      <!-- Step 2: ZIP code and provider tiers -->
+      <section class="card panel" id="panel-2" aria-labelledby="h-loc" hidden>
+        <h2 id="h-loc">Your location and tier</h2>
+
+        <div class="field">
+          <label for="zip">ZIP code</label>
+          <input id="zip" type="text" inputmode="numeric" maxlength="5" value="75201" autocomplete="off">
+          <p class="hint">Set to a Dallas–Fort Worth ZIP code by default. Only the ZIP is used, and it is not sent anywhere.</p>
+          <p class="error" id="zip-error" hidden>Enter a 5-digit ZIP code.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Choose a tier">
+          <button type="button" role="tab" id="tab-trusted" data-tier="trusted" aria-selected="true" aria-controls="list-trusted">Trusted</button>
+          <button type="button" role="tab" id="tab-fast" data-tier="fast" aria-selected="false" aria-controls="list-fast">Fast</button>
+        </div>
+        <p class="tier-note" id="tier-note"></p>
+
+        <div id="list-trusted" class="providers" role="tabpanel" aria-labelledby="tab-trusted"></div>
+        <div id="list-fast" class="providers" role="tabpanel" aria-labelledby="tab-fast" hidden></div>
+
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" data-back="1">Back</button>
+          <button type="button" class="btn" id="next-2" disabled>Continue</button>
+        </div>
+      </section>
+
+      <!-- Step 3: review and request -->
+      <section class="card panel" id="panel-3" aria-labelledby="h-req" hidden>
+        <h2 id="h-req">Review your request</h2>
+        <dl class="summary">
+          <div><dt>Photo</dt><dd id="sum-pest">American cockroach</dd></div>
+          <div><dt>ZIP code</dt><dd id="sum-zip">75201</dd></div>
+          <div><dt>Tier</dt><dd id="sum-tier">Trusted</dd></div>
+          <div><dt>Provider</dt><dd id="sum-provider">—</dd></div>
+          <div><dt>Estimated price</dt><dd id="sum-price">—</dd></div>
+        </dl>
+        <p class="disclaimer">Pressing Request is a demo. Nothing is sent and no job is booked. In the full service, each job would be a separate agreement between you and the exterminator.</p>
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" data-back="2">Back</button>
+          <button type="button" class="btn btn-accent" id="request-btn">Request</button>
+        </div>
+      </section>
+
+      <!-- Confirmation -->
+      <section class="card panel confirm" id="panel-done" aria-labelledby="h-done" tabindex="-1" hidden>
+        <div class="check" aria-hidden="true">✓</div>
+        <h2 id="h-done">Request received (demo)</h2>
+        <p>This is a sample confirmation. Nothing was sent to a real provider.</p>
+        <p id="done-provider" class="done-provider"></p>
+        <p class="disclaimer">Each job is a separate agreement between you and the exterminator. PestPair is only the connection.</p>
+        <div class="actions" style="justify-content:center">
+          <button type="button" class="btn" id="restart-btn">Start over</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>PestPair</strong> is a college application prototype. All businesses, people, ratings, reviews, and prices are fictional. No real bookings are taken.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/booking.js"></script>
+</body>
+</html>

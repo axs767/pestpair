@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>For Exterminators · PestPair (Demo)</title>
+  <meta name="description" content="How solo licensed exterminators can join PestPair, keep about 85% of each job, and build reviews. Sample data only.">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <div class="banner" role="note">Demo prototype — sample data only. Not a real service.</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">🛡️ PestPair</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">How it works</a>
+        <a href="book.html">Book</a>
+        <a href="exterminators.html" aria-current="page">For Exterminators</a>
+        <a href="index.html#money">How we make money</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">For solo and small-team exterminators</p>
+        <h1>Get booked by nearby customers. Keep most of every job.</h1>
+        <p class="lead">PestPair connects licensed exterminators with customers who need help fast. On a $165 job, you keep about $140.</p>
+        <a class="btn" href="#join">See how to join</a>
+      </div>
+    </section>
+
+    <section class="section" id="join">
+      <div class="container">
+        <h2>How to join</h2>
+        <p class="sub">Three steps.</p>
+        <div class="steps">
+          <article class="card">
+            <div class="step-num">1</div>
+            <h3>Show your Texas license</h3>
+            <p>Your license is checked against Texas Department of Agriculture records before you can take jobs.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">2</div>
+            <h3>Set your area and hours</h3>
+            <p>Choose the ZIP codes you serve and when you are available. Customers see your estimated arrival time.</p>
+          </article>
+          <article class="card">
+            <div class="step-num">3</div>
+            <h3>Accept jobs and earn reviews</h3>
+            <p>Start in Fast, where solo exterminators compete on price and arrival time. Build reviews to move up to Trusted.</p>
+          </article>
+        </div>
+        <div class="start-row">
+          <button type="button" class="btn btn-accent" id="apply-btn">Start your application</button>
+          <p class="hint" id="apply-note" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="earnings">
+      <div class="container">
+        <h2>What you keep</h2>
+        <p class="sub">PestPair takes 15% of each job. You keep the other 85%.</p>
+        <div class="card">
+          <table class="earn-table">
+            <tbody>
+              <tr><th scope="row">Customer pays (sample job)</th><td>$165</td></tr>
+              <tr><th scope="row">You keep</th><td class="good">$140</td></tr>
+              <tr><th scope="row">PestPair fee (15%)</th><td>$25</td></tr>
+            </tbody>
+          </table>
+          <p class="disclaimer">Example numbers for this demo. Each job is a separate agreement between you and the customer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tiers">
+      <div class="container">
+        <h2>From Fast to Trusted</h2>
+        <p class="sub">Customers see two tiers. Your reviews help you move up.</p>
+        <div class="grid-2">
+          <article class="card">
+            <span class="badge">Fast</span>
+            <h3>Start here</h3>
+            <p>Solo licensed exterminators nearby. Listed with lower prices and sorted by arrival time, so good availability wins jobs.</p>
+          </article>
+          <article class="card">
+            <span class="badge">Trusted</span>
+            <h3>Grow into it</h3>
+            <p>Established companies with more reviews and higher prices. Build a record of reviews to move from Fast to Trusted.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>PestPair</strong> is a college application prototype. All businesses, people, ratings, reviews, and prices are fictional. No real bookings are taken.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('apply-btn').addEventListener('click', function () {
+      document.getElementById('apply-note').textContent = 'Demo only. Applications are not open, and no information is collected.';
+    });
+  </script>
+</body>
+</html>
